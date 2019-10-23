@@ -1,10 +1,10 @@
 #include "headers.h"
 
-void print_list(struct node *) {
+void print_list(struct node * l) {
   //Should take a pointer to a node struct and print out all of the data in the list
 }
 
-struct node * insert_front(struct node *, int) {
+struct node * insert_front(struct node * l, int x) {
   /*
   Should take a pointer to the existing list and the data to be added,
   create a new node and put it at the beginning of the list.
@@ -12,7 +12,7 @@ struct node * insert_front(struct node *, int) {
   Returns a pointer to the beginning of the list.
   */
 }
-struct node * free_list(struct node *) {
+struct node * free_list(struct node * l) {
   // Should take a pointer to a list as a parameter and then go through
-  // the entire list freeing each node and return a pointer to the beginning of the list (which should be NULL by then).    
+  // the entire list freeing each node and return a pointer to the beginning of the list (which should be NULL by then).
 }
