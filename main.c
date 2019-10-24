@@ -1,6 +1,9 @@
 #include "headers.h"
 
 int main() {
+  struct node * q = calloc(1, sizeof(struct node)) ;
+  printf("Printing empty list:\n") ;
+  print_list(q) ;
   return 0 ;
 }
 
