@@ -13,6 +13,11 @@ struct node * insert_front(struct node * l, int x) {
   create a new node and put it at the beginning of the list.
   The second argument should match whatever data you contain in your nodes.
   Returns a pointer to the beginning of the list.*/
+  struct node * a = calloc(1, sizeof(struct node)) ; // use calloc since it returns a pointer and that's how we want to start
+  free(a) ; // release the beginning because we want a new beginning
+  a -> i = x ;
+  a -> next = l ;
+  return a ;
 }
 
 struct node * free_list(struct node * l) {
