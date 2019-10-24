@@ -23,4 +23,10 @@ struct node * insert_front(struct node * l, int x) {
 struct node * free_list(struct node * l) {
   // Should take a pointer to a list as a parameter and then go through
   // the entire list freeing each node and return a pointer to the beginning of the list (which should be NULL by then).
+  if (l -> next) free_list(l -> next) ;
+  else {
+    struct node * a = l ;
+    free(l) ; // free or release the original node given or the copy that was passed into this function
+    return a ; // return the one we just made
+  }
 }
