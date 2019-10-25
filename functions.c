@@ -39,5 +39,14 @@ struct node * remove(struct node *front, int data) {
   /*Remove the node containing data from the list pointed to by front.
   If data is not in the list, nothing is changed.
   Returns a pointer to the beginning of the list.*/
+  struct node * test = front ;
+  if (front->i == data) {
+    // then the data is present
+    front->next = (front->next)->next ;
+  }
+  else {
+    // nothing is changed
 
+  }
+  return test ;
 }
