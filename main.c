@@ -2,33 +2,30 @@
 
 int main() {
   struct node * q = calloc(1, sizeof(struct node)) ;
+  // q will be the tester
   printf("Printing empty list:\n") ;
   print_list(q) ;
+
   printf("Adding #s 0-9 to list.\n") ;
   int z ;
-  for (z = 0 ; z < 9 ; z++) {
-    insert_front(q, z) ;
+  for (z = 0 ; z < 10; z++){
+    q = insert_front(q, z);
   }
   printf("Printing my new list that has values added:\n") ;
   print_list(q) ;
-  printf("Removing 9\n") ;
-  remove(q,9) ;
+
+  printf("Removing node with value 2.\n") ;
+  remove_node(q,2) ;
+  printf("Removing node with value 6.\n") ;
+  remove_node(q,6) ;
+  printf("Printing list (which should not have 2 and 6):\n") ;
   print_list(q) ;
-  printf("Removing 2\n") ;
-  remove(q,2) ;
-  print_list(q) ;
-  printf("Removing 6\n") ;
-  remove(q,6) ;
-  print_list(q) ;
-  printf("Removing 100\n") ;
-  remove(q,100) ;
+  printf("Removing 100(which is not in the list so it should remain the same!):\n") ;
+  remove_node(q,100) ;
   print_list(q) ; // The list should not change from here since 100 is not in the list
-  /*printf("And now we're going to free nodes\n") ;
-  free_list(q) ;*/
-  printf("Freeing the list\n") ;
-  for (z = 0 ; z < sizeof(q); ) {
-    printf("Freeing node: %d\n", z) ;
-  }
+  printf("Freeing the rest of the list:\n") ;
+  q = free_list(q) ;
+  printf("Printing list:\n") ;
   print_list(q) ;
   return 0 ;
 }
