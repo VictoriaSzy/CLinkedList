@@ -1,13 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "headers.h"
-
 void print_list(struct node * l) {
   //Should take a pointer to a node struct and print out all of the data in the list
   printf("[") ;
   if (l != NULL) {
     struct node * n = l ;
-    while (n->next) {
+    while (n->next != NULL) {
       printf(" %d", n->i) ; // use i since that's the int we have as part of our struct
       n = n->next ;
     }
@@ -30,7 +26,7 @@ struct node * insert_front(struct node * l, int x) {
 struct node * free_list(struct node * l) {
   // Should take a pointer to a list as a parameter and then go through
   // the entire list freeing each node and return a pointer to the beginning of the list (which should be NULL by then).
-  struct node *n = l ;
+  struct node * n = l ;
   while (l->next) {
     printf("Freeing node: %d\n", l->i) ;
     n = l->next ;
