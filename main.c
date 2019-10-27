@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "headers.h"
 
 int main() {
@@ -9,24 +11,29 @@ int main() {
   printf("Adding #s 0-9 to list.\n") ;
   int z ;
   for (z = 0 ; z < 10; z++){
-    q = insert_front(q, z);
+    q = insert_front(q, z) ;
   }
   printf("Printing my new list that has values added:\n") ;
   print_list(q) ;
 
+  printf("\n\n***TESTING REMOVE FUNCTIONS\n") ;
   printf("Removing node with value 2.\n") ;
-  remove_node(q,2) ;
+  q = remove_node(q,2) ;
+  print_list(q) ;
   printf("Removing node with value 6.\n") ;
-  remove_node(q,6) ;
+  q = remove_node(q,6) ;
+  print_list(q) ;
   printf("Printing list (which should not have 2 and 6):\n") ;
   print_list(q) ;
   printf("Removing 100(which is not in the list so it should remain the same!):\n") ;
-  remove_node(q,100) ;
+  q = remove_node(q,100) ;
   print_list(q) ; // The list should not change from here since 100 is not in the list
-  printf("Freeing the rest of the list:\n") ;
+
+  printf("\n\n***Freeing the rest of the list:\n") ;
   q = free_list(q) ;
   printf("Printing list:\n") ;
-  print_list(q) ;
+  print_list(q) ; // should be empty now!
+  printf("If the list is empty or looks like this [ ] then we are good!\n") ;
   return 0 ;
 }
 
